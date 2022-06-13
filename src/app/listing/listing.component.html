@@ -1,0 +1,50 @@
+<h3>Items Listing</h3>
+<p>
+  This page illustrates classic listing page with add, edit, delete
+  functionality.
+</p>
+
+<app-filter (filterChange)="handleFilterChange($event)"></app-filter>
+
+<ng-container *ngIf="items | async as items">
+  <app-items-list
+    [items]="items"
+    (editItem)="handleEditItem($event)"
+    (deleteItem)="handleDeleteItem($event)"
+  ></app-items-list>
+</ng-container>
+
+<ng-container *ngIf="editingItem !== null">
+  <ngx-smart-modal
+    #editingModal
+    identifier="id-item-edit-modal"
+    [autostart]="true"
+    (onAnyCloseEventFinished)="editingItem = null"
+  >
+    <app-item-edit-modal
+      [item]="editingItem"
+      [modal]="editingModal"
+    ></app-item-edit-modal>
+  </ngx-smart-modal>
+</ng-container>
+
+
+<app-confirm-delete
+  *ngIf="deletingItem !== null"
+  title="Delete?"
+  (confirm)="handleDeleteItemConfirmed(deletingItem)"
+  (cancel)="deletingItem = null"
+  >
+  <!-- If only simple text is required the this is way to go -->
+  Are you sure you want to delete "{{ deletingItem?.name }}"?
+
+  <!--
+  If any custom logic or loading data from the server (to show to the user before he can
+  confirm deletion) is required then it is better to create a special component, possibly with
+  a dedicated ComponentStore service
+
+  For example:
+
+  <app-confirm-item-delete [item]="deletingItem"></app-confirm-item-delete>
+  -->
+</app-confirm-delete>

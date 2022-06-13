@@ -1,0 +1,19 @@
+<ngx-smart-modal
+  [identifier]="modalIdentifier"
+  [autostart]="options?.autostart ?? autostart"
+  (onEscape)="cancel?.emit()"
+  (onDismiss)="cancel?.emit()"
+  (onClose)="cancel?.emit()"
+  [closable]="options?.closable ?? closable"
+  [dismissable]="options?.dismissable ?? dismissable"
+  [escapable]="options?.escapable ?? escapable"
+>
+  <h3>{{ title }}</h3>
+
+  <div>
+    <ng-content></ng-content>
+  </div>
+
+  <button type="submit" (click)="confirm.emit()">Yes, delete</button>
+  <button type="reset" (click)="cancel.emit()">Cancel</button>
+</ngx-smart-modal>

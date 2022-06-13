@@ -1,0 +1,4 @@
+<div *ngFor="let item of items">
+  <a href="javascript: void(0)" (click)="editItem.emit(item)">{{ item.id }} - {{ item.name }}</a>
+  <button (click)="deleteItem.emit(item)">Delete</button>
+</div>
