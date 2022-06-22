@@ -1,9 +1,0 @@
-<ng-container *ngIf="!item">No item</ng-container>
-
-<ng-container *ngIf="item">
-  <p>Editing #{{item.id}} — Name: {{item.name}}</p>
-
-  <p>Modal Identifier: {{modal?.identifier}}</p>
-  <button (click)="modal?.close()">Close modal</button>
-  <button (click)="modal?.dismiss('canceled')">Dismiss/Cancel</button>
-</ng-container>

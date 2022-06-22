@@ -43,4 +43,8 @@ export class ListingComponent implements OnInit {
     this.listingService.deleteItem(item);
     this.deletingItem = null;
   }
+
+  handleItemChangesSaved(item: Item, editingItem: Item) {
+    console.log('Editing saved:', item, editingItem);
+  }
 }

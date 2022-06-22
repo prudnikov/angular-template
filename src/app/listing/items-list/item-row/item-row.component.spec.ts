@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ItemEditModalComponent } from './item-edit-modal.component';
+import { ItemRowComponent } from './item-row.component';
 
-describe('EditModalComponent', () => {
-  let component: ItemEditModalComponent;
-  let fixture: ComponentFixture<ItemEditModalComponent>;
+describe('ItemRowComponent', () => {
+  let component: ItemRowComponent;
+  let fixture: ComponentFixture<ItemRowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemEditModalComponent ]
+      declarations: [ ItemRowComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ItemEditModalComponent);
+    fixture = TestBed.createComponent(ItemRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -14,27 +14,23 @@
   ></app-items-list>
 </ng-container>
 
-<ng-container *ngIf="editingItem !== null">
-  <ngx-smart-modal
-    #editingModal
-    identifier="id-item-edit-modal"
-    [autostart]="true"
-    (onAnyCloseEventFinished)="editingItem = null"
-  >
-    <app-item-edit-modal
-      [item]="editingItem"
-      [modal]="editingModal"
-    ></app-item-edit-modal>
-  </ngx-smart-modal>
-</ng-container>
-
+<app-edit-modal
+  *ngIf="editingItem !== null"
+  modalIdentifier="id-item-edit-modal"
+  title="EDIT {{editingItem.name}}!"
+  [autostart]="true"
+  (cancel)="editingItem = null"
+>
+  <app-item-edit-form [item]="editingItem"
+                      (changesSaved)="handleItemChangesSaved($event, editingItem)"></app-item-edit-form>
+</app-edit-modal>
 
 <app-confirm-delete
   *ngIf="deletingItem !== null"
   title="Delete?"
   (confirm)="handleDeleteItemConfirmed(deletingItem)"
   (cancel)="deletingItem = null"
-  >
+>
   <!-- If only simple text is required the this is way to go -->
   Are you sure you want to delete "{{ deletingItem?.name }}"?
 

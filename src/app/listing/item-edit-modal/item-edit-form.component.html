@@ -1,0 +1,11 @@
+<ng-container *ngIf="!item">No item</ng-container>
+
+<ng-container *ngIf="item">
+  <form [formGroup]="form">
+    <input type="text" name="name" id="id-name" formControlName="name" />
+
+    <button type="submit" (click)="handleSubmit($event)">Submit</button>
+    <button type="reset" (click)="handleReset($event)">Reset</button>
+    <button type="button" (click)="handleCancel($event)">Cancel</button>
+  </form>
+</ng-container>

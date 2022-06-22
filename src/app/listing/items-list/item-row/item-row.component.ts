@@ -2,21 +2,21 @@ import {
   Component,
   OnInit,
   Input,
-  EventEmitter,
   Output,
+  EventEmitter,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { Item } from '../listing.types';
+import { Item } from '../../listing.types';
 
 @Component({
-  selector: 'app-items-list',
-  templateUrl: './items-list.component.html',
-  styleUrls: ['./items-list.component.scss'],
+  selector: 'app-item-row',
+  templateUrl: './item-row.component.html',
+  styleUrls: ['./item-row.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ItemsListComponent implements OnInit {
+export class ItemRowComponent implements OnInit {
   @Input()
-  items: Item[] = [];
+  item!: Item;
 
   @Output()
   editItem = new EventEmitter<Item>();

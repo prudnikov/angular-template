@@ -1,0 +1,17 @@
+<ngx-smart-modal
+  [identifier]="modalIdentifier"
+  [autostart]="options?.autostart ?? autostart"
+  [closable]="options?.closable ?? closable"
+  [dismissable]="options?.dismissable ?? dismissable"
+  [escapable]="options?.escapable ?? escapable"
+>
+<!--  (onEscape)=""-->
+<!--  (onDismiss)="cancel?.emit()"-->
+<!--  (onClose)="cancel?.emit()"-->
+  <h3>{{ title }}</h3>
+
+  <div>
+    <ng-content></ng-content>
+  </div>
+
+</ngx-smart-modal>
