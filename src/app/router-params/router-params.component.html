@@ -1,1 +1,19 @@
 <p>router-params works!</p>
+<a routerLink="123">/123</a> •
+<a [routerLink]="['123', 'child']">/123/child</a> •
+<a [routerLink]="[345, 'child']">/345/child</a> •
+<a [routerLink]="['111', ['BS-12', 'ITA-44', 'BS-4873'], 'child', { ddd: 1 }]"
+  >/111_array/child_dict</a
+>
+•
+<a [routerLink]="['111', { priority: [1, 4, 5] }, 'child', { ddd: 1 }]"
+  >/111_dict/child_dict</a
+>
+•
+<a [routerLink]="['111', { priority: 1, status: 4 }]">/111_dict</a> •
+<a [routerLink]="['111', { priority: 1, status: 4 }, 'child', { ddd: 1 }]"
+  >/111_dict/child_dict</a
+>
+
+<hr />
+<router-outlet></router-outlet>
